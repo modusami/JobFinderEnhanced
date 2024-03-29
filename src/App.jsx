@@ -5,7 +5,7 @@ import MainPage from "./components/MainPage/MainPage";
 function App() {
 	return (
 		<>
-			<div className="flex h-screen">
+			<div className="flex min-h-[100vh]">
 				{/* Sidebar */}
 				<Sidebar />
 				{/* Main Page */}

@@ -38,6 +38,8 @@ const MainPage = () => {
 	const URL_FOR_ALL_DATA = `https://newsapi.org/v2/top-headlines?country=us&apiKey=bdd28d4b8aba4880a6ba243ebd2cc0d7`;
 	const [mainData, setMainData] = useState(null);
 	const [totalResults, setTotalResults] = useState(0);
+	const [topAuthor, setTopAuthor] = useState(null);
+	const [source, setTopSource] = useState(null);
 
 	useEffect(() => {
 		fetchData();
@@ -49,23 +51,82 @@ const MainPage = () => {
 			const data = response.data;
 			setTotalResults(data.totalResults);
 			setMainData(data.articles);
+			getTopAuthor(mainData);
+			getTopSource(mainData);
 		} catch (err) {
 			console.log(err);
 		}
 	};
 
+	const getTopSource = (articles) => {
+		const counts = {};
+
+		// Count the occurrences of each author
+		articles.forEach((article) => {
+			const source = article.source.id;
+			if (source) {
+				if (counts[source]) {
+					counts[source]++;
+				} else {
+					counts[source] = 1;
+				}
+			}
+		});
+
+		// Find the author with the highest count
+		let topAuthor = "";
+		let maxCount = 0;
+		for (const author in counts) {
+			if (counts[author] > maxCount) {
+				topAuthor = author;
+				maxCount = counts[author];
+			}
+		}
+
+		setTopSource(topAuthor.toUpperCase());
+	};
+
+	const getTopAuthor = (articles) => {
+		const authorCounts = {};
+
+		// Count the occurrences of each author
+		articles.forEach((article) => {
+			const author = article.author;
+			if (author) {
+				if (authorCounts[author]) {
+					authorCounts[author]++;
+				} else {
+					authorCounts[author] = 1;
+				}
+			}
+		});
+
+		// Find the author with the highest count
+		let topAuthor = "";
+		let maxCount = 0;
+		for (const author in authorCounts) {
+			if (authorCounts[author] > maxCount) {
+				topAuthor = author;
+				maxCount = authorCounts[author];
+			}
+		}
+
+		console.log(topAuthor);
+
+		setTopAuthor(topAuthor);
+	};
+
 	return (
 		<>
 			<div className="flex-1 p-8">
-				<h1 className="text-3xl font-bold mb-4">Main Page</h1>
+				<h1 className="text-3xl font-bold mb-4">News Headlines</h1>
 				{/* Add your main page content here */}
 				<div className="grid grid-cols-3 gap-4">
 					<Statistic statistic_name={"Total Results"} statistic_value={totalResults} />
-					<Statistic statistic_name={"Most Frequent Skill"} statistic_value={"React"} />
-					<Statistic statistic_name={"Most Frequent Location"} statistic_value={"USA"} />
+					<Statistic statistic_name={"Top Author"} statistic_value={topAuthor} />
+					<Statistic statistic_name={"Top Source"} statistic_value={source} />
 				</div>
-				<div className="flex-1 p-8">
-					<h1 className="text-3xl font-bold mb-4">News Headlines</h1>
+				<div className="flex-1 p-8s mt-5">
 					{mainData ? (
 						mainData.map((entry, index) => <Entry key={index} {...entry} />)
 					) : (
