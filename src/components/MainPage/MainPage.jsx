@@ -1,6 +1,10 @@
 import Statistic from "./MainPageComponents/Statistic";
 import Entry from "./MainPageComponents/Entry";
 import backupLogo from "/backup_logo.png";
+import { useEffect } from "react";
+const token = null;
+const URL_FOR_ALL_DATA = null;
+import { useState } from "react";
 
 const sampleData = [
 	{
@@ -30,6 +34,21 @@ const sampleData = [
 ];
 
 const MainPage = () => {
+	const [mainData, setMainData] = useState(null);
+
+	// useEffect(() => {
+	// 	const fetchData = async () => {
+	// 		let headers = new Headers();
+	// 		headers.append("Authorization", "Token " + token);
+	// 		const response = await fetch(URL_FOR_ALL_DATA, {
+	// 			headers: headers,
+	// 		});
+	// 		console.log(response);
+	// 		setMainData(response.results);
+	// 	};
+	// 	fetchData().catch(console.error());
+	// }, []);
+
 	return (
 		<>
 			<div className="flex-1 p-8">

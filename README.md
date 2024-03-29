@@ -13,14 +13,19 @@ The following **required** functionality is completed:
 -   [ ] **The list displays a list of data fetched using an API call**
 -   [ ] **Data uses the useEffect React hook and async/await syntax**
 -   [ ] **The app dashboard includes at least three summary statistics about the data such as**
-    -   [ ] amount of jobs in the dashboard
-    -   [ ] most frequent location
-    -   [ ] most frequent keyword (skill)
+
+    -   [ ] total results
+    -   [ ] top author
+    -   [ ] number of unique sources
+
 -   [ ] **A search bar allows the user to search for an item in the fetched data**
-    -   [] the item searched for is the name of the job
+
+    -   [] search for the specific type of content display (bitcoin, software, etc)
+
 -   [ ] **Multiple different filters (2+) allow the user to filter items in the database by specified categories**
-    -   [] filter items by keywords (jobs that consist of this keyword)
-    -   [] order by relevance
+    -   [] filter by popularity
+    -   [] filter by relevancy
+    -   [] filter by publishedAt
 
 The following **optional** features are implemented:
 
