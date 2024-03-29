@@ -40,19 +40,40 @@ const MainPage = () => {
 	const [totalResults, setTotalResults] = useState(0);
 	const [topAuthor, setTopAuthor] = useState(null);
 	const [source, setTopSource] = useState(null);
+	const [filteredData, setFilteredData] = useState(null);
+	const [selectedCategory, setSelectedCategory] = useState(null);
 
 	useEffect(() => {
-		fetchData();
+		fetchData(URL_FOR_ALL_DATA);
 	}, []);
 
-	const fetchData = async () => {
+	useEffect(() => {
+		if (mainData) {
+			setFilteredData(mainData);
+		}
+	}, [mainData]);
+
+	const fetchData = async (url) => {
 		try {
-			const response = await axios.get(URL_FOR_ALL_DATA);
+			const response = await axios.get(url);
 			const data = response.data;
 			setTotalResults(data.totalResults);
 			setMainData(data.articles);
-			getTopAuthor(mainData);
 			getTopSource(mainData);
+			getTopAuthor(mainData);
+		} catch (err) {
+			console.log(err);
+		}
+	};
+
+	const fetchFilteredData = async (url) => {
+		try {
+			const response = await axios.get(url);
+			const data = response.data;
+			setTotalResults(data.totalResults);
+			setFilteredData(data.articles);
+			getTopSource(filteredData);
+			getTopAuthor(filteredData);
 		} catch (err) {
 			console.log(err);
 		}
@@ -116,6 +137,30 @@ const MainPage = () => {
 		setTopAuthor(topAuthor);
 	};
 
+	const filterAlphabetically = () => {
+		const sorted = [...filteredData].sort((a, b) => a.title.localeCompare(b.title));
+		setFilteredData(sorted);
+	};
+
+	const filterByCategory = (category) => {
+		const API_URL = `https://newsapi.org/v2/top-headlines?country=us&category=${category}&apiKey=${API_KEY}`;
+		setSelectedCategory(category);
+		fetchFilteredData(API_URL);
+	};
+
+	const filterByPublishedAt = () => {
+		const sorted = [...filteredData].sort(
+			(a, b) => new Date(a.publishedAt) - new Date(b.publishedAt)
+		);
+		console.log(sorted);
+		setFilteredData(sorted);
+	};
+
+	const clearFilters = () => {
+		setFilteredData(mainData);
+		setSelectedCategory(null);
+	};
+
 	return (
 		<>
 			<div className="flex-1 p-8">
@@ -126,9 +171,41 @@ const MainPage = () => {
 					<Statistic statistic_name={"Top Author"} statistic_value={topAuthor} />
 					<Statistic statistic_name={"Top Source"} statistic_value={source} />
 				</div>
+				<div className="mt-5">
+					<button className="block" onClick={filterAlphabetically}>
+						Sort Alphabetically
+					</button>
+					<button className="mr-3" onClick={() => filterByCategory("business")}>
+						Business
+					</button>
+					<button className="mr-3" onClick={() => filterByCategory("entertainment")}>
+						Entertainment
+					</button>
+					<button className="mr-3" onClick={() => filterByCategory("general")}>
+						General
+					</button>
+					<button className="mr-3" onClick={() => filterByCategory("health")}>
+						Health
+					</button>
+					<button className="mr-3" onClick={() => filterByCategory("science")}>
+						Science
+					</button>
+					<button className="mr-3" onClick={() => filterByCategory("sports")}>
+						Sports
+					</button>
+					<button className="mr-3" onClick={() => filterByCategory("technology")}>
+						Technology
+					</button>
+					<button className="block" onClick={filterByPublishedAt}>
+						Sort by Published Date
+					</button>
+					<button className="block" onClick={clearFilters}>
+						Clear Filters
+					</button>
+				</div>
 				<div className="flex-1 p-8s mt-5">
-					{mainData ? (
-						mainData.map((entry, index) => <Entry key={index} {...entry} />)
+					{filteredData ? (
+						filteredData.map((entry, index) => <Entry key={index} {...entry} />)
 					) : (
 						<></>
 					)}

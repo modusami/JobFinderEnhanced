@@ -1,8 +1,8 @@
-# Web Development Project 5 - **JobFinder**
+# Web Development Project 5 - **NewsFinder**
 
 Submitted by: **Michael-Andre Odusami**
 
-This web app: **is a large database / dashboard consisting of jobs to search for**
+This web app: **is a large database / dashboard consisting of news to search for**
 
 Time spent: **3** hours spent in total
 
@@ -10,22 +10,14 @@ Time spent: **3** hours spent in total
 
 The following **required** functionality is completed:
 
--   [ ] **The list displays a list of data fetched using an API call**
--   [ ] **Data uses the useEffect React hook and async/await syntax**
--   [ ] **The app dashboard includes at least three summary statistics about the data such as**
-
-    -   [ ] total results
-    -   [ ] top author
-    -   [ ] number of unique sources
-
+-   [DONE] **The list displays a list of data fetched using an API call**
+-   [DONE] **Data uses the useEffect React hook and async/await syntax**
+-   [ DONE **The app dashboard includes at least three summary statistics about the data such as**
+    -   [DONE] total results
+    -   [DONE] top author
+    -   [DONE] most frequent source
 -   [ ] **A search bar allows the user to search for an item in the fetched data**
-
-    -   [] search for the specific type of content display (bitcoin, software, etc)
-
--   [ ] **Multiple different filters (2+) allow the user to filter items in the database by specified categories**
-    -   [] filter by popularity
-    -   [] filter by relevancy
-    -   [] filter by publishedAt
+-   [DONE] **Multiple different filters (2+) allow the user to filter items in the database by specified categories**
 
 The following **optional** features are implemented:
 
@@ -41,24 +33,21 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='submission.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 <!-- Replace this with whatever GIF tool you used! -->
 
 GIF created with ...
 
-<!-- Recommended tools:
 [Kap](https://getkap.co/) for macOS
-[ScreenToGif](https://www.screentogif.com/) for Windows
-[peek](https://github.com/phw/peek) for Linux. -->
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+Challenges building the app included dealing with API / Cors issues. Had to switch between three different apis before using this news api.
 
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright 2024 Michael-Andre Odusami
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
