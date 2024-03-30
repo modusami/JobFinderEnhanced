@@ -12,11 +12,11 @@ The following **required** functionality is completed:
 
 -   [✅] **The list displays a list of data fetched using an API call**
 -   [✅]] **Data uses the useEffect React hook and async/await syntax**
--   [ ] **The app dashboard includes at least three summary statistics about the data such as**
+-   [✅] **The app dashboard includes at least three summary statistics about the data such as**
 
     -   [✅] the amount of jobs displayed
-    -   [ ] the amount of remote jobs
-    -   [ ] the most frequent location
+    -   [✅] the amount of remote jobs
+    -   [✅] the most frequent location
 
 -   [ ] **A search bar allows the user to search for an item in the fetched data** - [] can search by career or role
 -   [ ] **Multiple different filters (2+) allow the user to filter items in the database by specified categories**
