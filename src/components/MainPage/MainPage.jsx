@@ -29,6 +29,7 @@ const MainPage = () => {
 
 	useEffect(() => {
 		getCountOfRemoteJobs();
+		getMostFrequentLocation();
 	}, [mainData]);
 
 	// ************************** Functions  **************************
@@ -41,6 +42,28 @@ const MainPage = () => {
 			}
 		});
 		setCountOfRemoteJobs(remoteCounter);
+	};
+
+	const getMostFrequentLocation = async () => {
+		let locations = {};
+		mainData.map((job) => {
+			if (job.location != null) {
+				if (job.location in locations) {
+					locations[job.location] += 1;
+				} else {
+					locations[job.location] = 0;
+				}
+			}
+		});
+		let maxCount = 0;
+		let maxCountLocation = null;
+		for (let location in locations) {
+			if (locations[location] > maxCount) {
+				maxCount = locations[location];
+				maxCountLocation = location;
+			}
+		}
+		setTopLocation(maxCountLocation);
 	};
 
 	return (
