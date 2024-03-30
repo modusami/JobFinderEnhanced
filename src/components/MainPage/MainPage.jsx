@@ -6,7 +6,29 @@ import { useState } from "react";
 import axios from "axios";
 
 const MainPage = () => {
+	// ************************** UseStates  **************************
 	const [mainData, setMainData] = useState(null);
+
+	// ************************** UseEffects **************************
+
+	// for fetching data
+	useEffect(() => {
+		fetchData();
+	}, []);
+
+	// ************************** Functions  **************************
+
+	/**
+	 * getting the data from the api
+	 */
+	const fetchData = async () => {
+		try {
+			const response = await axios.get("http://localhost:3000/api/data");
+			console.log(response);
+		} catch (error) {
+			console.error("Error Fetching Data: ", error);
+		}
+	};
 
 	return (
 		<>
