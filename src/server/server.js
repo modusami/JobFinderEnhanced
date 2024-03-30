@@ -10,7 +10,7 @@ app.use(cors());
 // for get requests
 app.get("/api/data", async (req, res) => {
 	try {
-		const response = await axios.get("https://findwork.dev/api/jobs/", {
+		const response = await axios.get("https://findwork.dev/api/jobs/?location=USA", {
 			headers: {
 				Authorization: "Token 0eaa403e09b3046e9149a709863a9adde2eacd97",
 			},

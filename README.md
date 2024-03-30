@@ -10,14 +10,18 @@ Time spent: **3** hours spent in total
 
 The following **required** functionality is completed:
 
--   [DONE] **The list displays a list of data fetched using an API call**
--   [DONE] **Data uses the useEffect React hook and async/await syntax**
--   [ DONE **The app dashboard includes at least three summary statistics about the data such as**
-    -   [DONE] total results
-    -   [DONE] top author
-    -   [DONE] most frequent source
--   [ ] **A search bar allows the user to search for an item in the fetched data**
--   [DONE] **Multiple different filters (2+) allow the user to filter items in the database by specified categories**
+-   [✅] **The list displays a list of data fetched using an API call**
+-   [✅]] **Data uses the useEffect React hook and async/await syntax**
+-   [ ] **The app dashboard includes at least three summary statistics about the data such as**
+
+    -   [✅] the amount of jobs displayed
+    -   [ ] the amount of remote jobs
+    -   [ ] the most frequent location
+
+-   [ ] **A search bar allows the user to search for an item in the fetched data** - [] can search by career or role
+-   [ ] **Multiple different filters (2+) allow the user to filter items in the database by specified categories**
+    -   [ ] filter by keyword
+    -   [ ] filter by location
 
 The following **optional** features are implemented:
 
@@ -27,7 +31,8 @@ The following **optional** features are implemented:
 
 The following **additional** features are implemented:
 
--   [ ]
+-   [✅] display an image next to each entry
+-   [✅] add extra information about the job on each entry
 
 ## Video Walkthrough
 
