@@ -13,7 +13,18 @@ const Entry = ({ id, role, company_name, location, url, logo, keywords, remote }
 						<h3 className="text-xl font-bold">{role}</h3>
 						<p className="text-gray-600">{company_name}</p>
 						<p className="text-gray-500">{remote ? "Remote" : location}</p>
-						<p className="text-gray-400">{keywords}</p>
+						<p className="text-black-400">
+							{keywords &&
+								keywords.map((value, index) => {
+									return (
+										<>
+											<span key={index} className="mr-2 font-bold">
+												{value}
+											</span>
+										</>
+									);
+								})}
+						</p>
 					</div>
 				</div>
 			</a>

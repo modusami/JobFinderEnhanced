@@ -68,7 +68,7 @@ const MainPage = () => {
 
 	return (
 		<>
-			<div className="flex-1 p-8">
+			<div className="flex-1 p-8 ">
 				<h1 className="text-3xl font-bold mb-4">Software Jobs</h1>
 				{/* Add your main page content here */}
 				<div className="grid grid-cols-3 gap-4">
@@ -83,7 +83,7 @@ const MainPage = () => {
 					/>
 				</div>
 
-				<div className="flex-1 p-8s mt-5">
+				<div className="flex-1 p-8s mt-5 ">
 					{mainData ? (
 						mainData.map((entry, index) => <Entry key={index} {...entry} />)
 					) : (
