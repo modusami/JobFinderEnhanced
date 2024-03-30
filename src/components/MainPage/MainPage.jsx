@@ -23,14 +23,17 @@ const MainPage = () => {
 			const response = await axios.get("http://localhost:3000/api/data");
 			setMainData(response.data.results);
 			setCount(response.data.count);
-			getCountOfRemoteJobs();
 		};
 		fetchData().catch(console.error);
 	}, []);
 
+	useEffect(() => {
+		getCountOfRemoteJobs();
+	}, [mainData]);
+
 	// ************************** Functions  **************************
 
-	const getCountOfRemoteJobs = () => {
+	const getCountOfRemoteJobs = async () => {
 		let remoteCounter = 0;
 		mainData.map((job) => {
 			if (job.remote) {
