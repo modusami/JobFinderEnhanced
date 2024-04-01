@@ -2,9 +2,14 @@
 
 Submitted by: **Michael-Andre Odusami**
 
-This web app: **is a large database / dashboard consisting of jobsto search for**
+This web app: **is a large database / dashboard consisting of different tech jobs to search for using an API to display each job**
 
 Time spent: **3** hours spent in total
+
+## How to run
+start npm run dev, 
+start node server.js,  
+needed to create server due to API issues
 
 ## Required Features
 
@@ -33,6 +38,7 @@ The following **additional** features are implemented:
 
 -   [✅] display an image next to each entry
 -   [✅] add extra information about the job on each entry
+-   [✅]  onClick an job, it will take you right to the job posting page
 
 ## Video Walkthrough
 
