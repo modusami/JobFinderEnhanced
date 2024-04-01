@@ -7,8 +7,8 @@ This web app: **is a large database / dashboard consisting of different tech job
 Time spent: **3** hours spent in total
 
 ## How to run
-start npm run dev, 
-start node server.js,  
+npm run dev, 
+node server.js,  
 needed to create server due to API issues
 
 ## Required Features
