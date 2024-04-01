@@ -13,6 +13,8 @@ const MainPage = () => {
 	const [topLocation, setTopLocation] = useState(null);
 	const [countOfRemoteJobs, setCountOfRemoteJobs] = useState(0);
 	const [searchValue, setSearchValue] = useState("");
+	const [keywordFilter, setKeywordFilter] = useState("");
+	const [locationFilter, setLocationFilter] = useState("");
 
 	// ************************** UseEffects **************************
 
@@ -68,20 +70,50 @@ const MainPage = () => {
 		setTopLocation(maxCountLocation);
 	};
 
-	const filteredData =
-		searchValue.trim() === ""
-			? mainData
-			: mainData.filter(
-					(entry) =>
-						entry.role.toLowerCase().includes(searchValue.toLowerCase()) ||
-						entry.company_name.toLowerCase().includes(searchValue.toLowerCase()) ||
-						(entry.location &&
-							entry.location.toLowerCase().includes(searchValue.toLowerCase())) ||
-						(entry.keywords &&
-							entry.keywords.some((keyword) =>
-								keyword.toLowerCase().includes(searchValue.toLowerCase())
-							))
-			  );
+	// Filter functions for each filter type
+	const applyKeywordFilter = (data) => {
+		return keywordFilter
+			? data.filter((entry) => entry.keywords.includes(keywordFilter))
+			: data;
+	};
+
+	const applyLocationFilter = (data) => {
+		return locationFilter ? data.filter((entry) => entry.location === locationFilter) : data;
+	};
+
+	const applySearchFilter = (data) => {
+		return searchValue.trim() === ""
+			? data
+			: data.filter((entry) => containsSearchValue(entry));
+	};
+
+	const containsSearchValue = (entry) => {
+		return (
+			entry.role.toLowerCase().includes(searchValue.toLowerCase()) ||
+			entry.company_name.toLowerCase().includes(searchValue.toLowerCase()) ||
+			(entry.location && entry.location.toLowerCase().includes(searchValue.toLowerCase())) ||
+			(entry.keywords &&
+				entry.keywords.some((keyword) =>
+					keyword.toLowerCase().includes(searchValue.toLowerCase())
+				))
+		);
+	};
+
+	useEffect(() => {
+		if (mainData) {
+			// Apply filters to mainData
+			let filteredData = mainData.slice(); // Copy mainData
+
+			filteredData = applyKeywordFilter(filteredData);
+			filteredData = applyLocationFilter(filteredData);
+			filteredData = applySearchFilter(filteredData);
+
+			// Update filtered data
+			setFilteredData(filteredData);
+		}
+	}, [mainData, keywordFilter, locationFilter, searchValue]);
+
+	const [filteredData, setFilteredData] = useState(null);
 
 	return (
 		<>
@@ -99,9 +131,48 @@ const MainPage = () => {
 						statistic_value={topLocation}
 					/>
 				</div>
-				<div className="mt-3 mb-3 w-full bg-slate-100 p-3">
+				<div className="mt-3 mb-3 w-full bg-slate-100 p-3 flex ">
 					<Search searchValue={searchValue} setSearchValue={setSearchValue} />
+					<div className="mt-3 mb-3 flex-1 bg-slate-100 p-3 inline">
+						<select
+							value={keywordFilter}
+							onChange={(e) => setKeywordFilter(e.target.value)}
+							className="border border-gray-300 rounded-md px-3 py-1"
+						>
+							<option value="">Filter by Keyword</option>
+							{/* Populate options with unique keywords */}
+							{mainData &&
+								mainData
+									.reduce((acc, curr) => acc.concat(curr.keywords), [])
+									.filter((value, index, self) => self.indexOf(value) === index)
+									.map((keyword, index) => (
+										<option key={index} value={keyword}>
+											{keyword}
+										</option>
+									))}
+						</select>
+					</div>
+					<div className="mt-3 mb-3 flex-1 bg-slate-100 p-3 inline">
+						<select
+							value={locationFilter}
+							onChange={(e) => setLocationFilter(e.target.value)}
+							className="border border-gray-300 rounded-md px-3 py-1"
+						>
+							<option value="">Filter by Location</option>
+							{/* Populate options with unique locations */}
+							{mainData &&
+								mainData
+									.reduce((acc, curr) => acc.concat(curr.location), [])
+									.filter((value, index, self) => self.indexOf(value) === index)
+									.map((location, index) => (
+										<option key={index} value={location}>
+											{location}
+										</option>
+									))}
+						</select>
+					</div>
 				</div>
+
 				<div className="flex-1 p-8 mt-5 ">
 					{filteredData ? (
 						filteredData.map((entry, index) => <Entry key={index} {...entry} />)

@@ -1,8 +1,8 @@
-# Web Development Project 5 - **NewsFinder**
+# Web Development Project 5 - **JobFinder**
 
 Submitted by: **Michael-Andre Odusami**
 
-This web app: **is a large database / dashboard consisting of news to search for**
+This web app: **is a large database / dashboard consisting of jobsto search for**
 
 Time spent: **3** hours spent in total
 
@@ -18,10 +18,10 @@ The following **required** functionality is completed:
     -   [✅] the amount of remote jobs
     -   [✅] the most frequent location
 
--   [ ] **A search bar allows the user to search for an item in the fetched data** - [] can search by career or role
--   [ ] **Multiple different filters (2+) allow the user to filter items in the database by specified categories**
-    -   [ ] filter by keyword
-    -   [ ] filter by location
+-   [✅] **A search bar allows the user to search for an item in the fetched data** - [] can search by career or role
+-   [✅] **Multiple different filters (2+) allow the user to filter items in the database by specified categories**
+    -   [✅] filter by keyword
+    -   [✅] filter by location
 
 The following **optional** features are implemented:
 
