@@ -1,64 +1,50 @@
-# Web Development Project 5 - **JobFinder**
+# Web Development Project 6 - _JobFinderEnhanced_
 
 Submitted by: **Michael-Andre Odusami**
 
-This web app: **is a large database / dashboard consisting of different tech jobs to search for using an API to display each job**
+This web app: **insert description**
 
-Time spent: **3** hours spent in total
-
-## How to run
-npm run dev, 
-node server.js,  
-needed to create server due to API issues
+Time spent: **X** hours spent in total
 
 ## Required Features
 
 The following **required** functionality is completed:
 
--   [✅] **The list displays a list of data fetched using an API call**
--   [✅]] **Data uses the useEffect React hook and async/await syntax**
--   [✅] **The app dashboard includes at least three summary statistics about the data such as**
-
-    -   [✅] the amount of jobs displayed
-    -   [✅] the amount of remote jobs
-    -   [✅] the most frequent location
-
--   [✅] **A search bar allows the user to search for an item in the fetched data** - [] can search by career or role
--   [✅] **Multiple different filters (2+) allow the user to filter items in the database by specified categories**
-    -   [✅] filter by keyword
-    -   [✅] filter by location
+-   [ ] **The app includes at least one unique chart developed using the fetched data that tell an interesting story**
+-   [ ] **Clicking on an item in the list view displays more details about it**
+-   [ ] **Clicking on an item has a direct, unique link to that item's detail view page**
 
 The following **optional** features are implemented:
 
--   [✅] Multiple filters can be applied simultaneously
--   [ ] Filters use different input types such as a text input, a selection, or a slider
--   [ ] The user can enter specific bounds for filter values
+-   [ ] The site's customized dashboard contains more content that explains what is interesting about the data
+-   [ ] The site allows users to toggle between different data visualizations
 
 The following **additional** features are implemented:
 
--   [✅] display an image next to each entry
--   [✅] add extra information about the job on each entry
--   [✅]  onClick an job, it will take you right to the job posting page
+-   [ ] List anything else that you added to improve the site's functionality!
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
-<img src='submission.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 <!-- Replace this with whatever GIF tool you used! -->
 
 GIF created with ...
 
+<!-- Recommended tools:
 [Kap](https://getkap.co/) for macOS
+[ScreenToGif](https://www.screentogif.com/) for Windows
+[peek](https://github.com/phw/peek) for Linux. -->
 
 ## Notes
 
-Challenges building the app included dealing with API / Cors issues. Had to switch between three different apis before using this news api.
+Describe any challenges encountered while building the app.
 
 ## License
 
-    Copyright 2024 Michael-Andre Odusami
+    Copyright [yyyy] [name of copyright owner]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
