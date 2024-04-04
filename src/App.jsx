@@ -6,8 +6,6 @@ function App() {
 	return (
 		<>
 			<div className="flex min-h-[100vh]">
-				{/* Sidebar */}
-				<Sidebar />
 				{/* Main Page */}
 				<MainPage />
 			</div>
