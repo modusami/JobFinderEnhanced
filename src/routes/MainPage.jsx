@@ -117,7 +117,6 @@ const MainPage = () => {
 	return (
 		<>
 			<div className="flex-1 p-8 ">
-				<h1 className="text-3xl font-bold mb-4">Software Jobs</h1>
 				{/* Add your main page content here */}
 				<div className="grid grid-cols-3 gap-4">
 					<Statistic statistic_name={"Count"} statistic_value={count} />

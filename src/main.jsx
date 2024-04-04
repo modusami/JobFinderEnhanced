@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Sidebar from "./routes/Sidebar.jsx";
 import PageNotFound from "./routes/PageNotFound.jsx";
 import MainPage from "./routes/MainPage.jsx";
+import DetailPage from "./routes/DetailPage.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
 	<React.StrictMode>
@@ -12,6 +13,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 			<Routes>
 				<Route path="/" element={<Sidebar />}>
 					<Route index={true} element={<MainPage />} />
+					<Route path="job/:id" element={<DetailPage />} />
 					<Route path="*" element={<PageNotFound />} />
 				</Route>
 			</Routes>
