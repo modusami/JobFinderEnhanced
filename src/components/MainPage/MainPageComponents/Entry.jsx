@@ -1,8 +1,10 @@
 import backupLogo from "/backup_logo.png";
+import { Link } from "react-router-dom";
+
 const Entry = ({ id, role, company_name, location, url, logo, keywords, remote }) => {
 	return (
 		<div className="bg-white p-4 rounded-lg shadow-md mb-4">
-			<a href={url} target="_blank" rel="noopener noreferrer">
+			<Link to={`/job/${id}`} target="_black" rel="noopener noreferrer">
 				<div className="flex items-center">
 					{logo ? (
 						<img src={logo} alt={company_name} className="w-8 h-8 mr-4" />
@@ -27,7 +29,7 @@ const Entry = ({ id, role, company_name, location, url, logo, keywords, remote }
 						</p>
 					</div>
 				</div>
-			</a>
+			</Link>
 		</div>
 	);
 };
