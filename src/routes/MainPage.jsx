@@ -1,10 +1,9 @@
-import Statistic from "./MainPageComponents/Statistic";
-import Entry from "./MainPageComponents/Entry";
-import backupLogo from "/backup_logo.png";
+import Statistic from "../components/Statistic";
+import Entry from "../components/Entry";
 import { useEffect } from "react";
 import { useState } from "react";
 import axios from "axios";
-import Search from "./MainPageComponents/Search";
+import Search from "../components/Search";
 
 const MainPage = () => {
 	// ************************** UseStates  **************************
