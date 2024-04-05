@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import axios from "axios";
 import Search from "../components/Search";
+import SkillsChart from "../components/SkillsChart";
 
 const MainPage = () => {
 	// ************************** UseStates  **************************
@@ -116,67 +117,73 @@ const MainPage = () => {
 
 	return (
 		<>
-			<div className="flex-1 p-8 ">
-				{/* Add your main page content here */}
-				<div className="grid grid-cols-3 gap-4">
-					<Statistic statistic_name={"Count"} statistic_value={count} />
-					<Statistic
-						statistic_name={"Count of Remote Jobs"}
-						statistic_value={countOfRemoteJobs}
-					/>
-					<Statistic
-						statistic_name={"Most frequent location"}
-						statistic_value={topLocation}
-					/>
-				</div>
-				<div className="mt-3 mb-3 w-full bg-slate-100 p-3 flex ">
-					<Search searchValue={searchValue} setSearchValue={setSearchValue} />
-					<div className="mt-3 mb-3 flex-1 bg-slate-100 p-3 inline">
-						<select
-							value={keywordFilter}
-							onChange={(e) => setKeywordFilter(e.target.value)}
-							className="border border-gray-300 rounded-md px-3 py-1"
-						>
-							<option value="">Filter by Keyword</option>
-							{/* Populate options with unique keywords */}
-							{mainData &&
-								mainData
-									.reduce((acc, curr) => acc.concat(curr.keywords), [])
-									.filter((value, index, self) => self.indexOf(value) === index)
-									.map((keyword, index) => (
-										<option key={index} value={keyword}>
-											{keyword}
-										</option>
-									))}
-						</select>
+			<div className="flex-1 p-8 flex">
+				<div className="flex-1 p-8">
+					{/* Add your main page content here */}
+					<div className="grid grid-cols-3 gap-4">
+						<Statistic statistic_name={"Count"} statistic_value={count} />
+						<Statistic
+							statistic_name={"Count of Remote Jobs"}
+							statistic_value={countOfRemoteJobs}
+						/>
+						<Statistic
+							statistic_name={"Most frequent location"}
+							statistic_value={topLocation}
+						/>
 					</div>
-					<div className="mt-3 mb-3 flex-1 bg-slate-100 p-3 inline">
-						<select
-							value={locationFilter}
-							onChange={(e) => setLocationFilter(e.target.value)}
-							className="border border-gray-300 rounded-md px-3 py-1"
-						>
-							<option value="">Filter by Location</option>
-							{/* Populate options with unique locations */}
-							{mainData &&
-								mainData
-									.reduce((acc, curr) => acc.concat(curr.location), [])
-									.filter((value, index, self) => self.indexOf(value) === index)
-									.map((location, index) => (
-										<option key={index} value={location}>
-											{location}
-										</option>
-									))}
-						</select>
+					<div className="mt-3 mb-3 w-full bg-slate-100 p-3 flex ">
+						<Search searchValue={searchValue} setSearchValue={setSearchValue} />
+						<div className="mt-3 mb-3 flex-1 bg-slate-100 p-3 inline">
+							<select
+								value={keywordFilter}
+								onChange={(e) => setKeywordFilter(e.target.value)}
+								className="border border-gray-300 rounded-md px-3 py-1"
+							>
+								<option value="">Filter by Keyword</option>
+								{/* Populate options with unique keywords */}
+								{mainData &&
+									mainData
+										.reduce((acc, curr) => acc.concat(curr.keywords), [])
+										.filter(
+											(value, index, self) => self.indexOf(value) === index
+										)
+										.map((keyword, index) => (
+											<option key={index} value={keyword}>
+												{keyword}
+											</option>
+										))}
+							</select>
+						</div>
+						<div className="mt-3 mb-3 flex-1 bg-slate-100 p-3 inline">
+							<select
+								value={locationFilter}
+								onChange={(e) => setLocationFilter(e.target.value)}
+								className="border border-gray-300 rounded-md px-3 py-1"
+							>
+								<option value="">Filter by Location</option>
+								{/* Populate options with unique locations */}
+								{mainData &&
+									mainData
+										.reduce((acc, curr) => acc.concat(curr.location), [])
+										.filter(
+											(value, index, self) => self.indexOf(value) === index
+										)
+										.map((location, index) => (
+											<option key={index} value={location}>
+												{location}
+											</option>
+										))}
+							</select>
+						</div>
 					</div>
-				</div>
 
-				<div className="flex-1 p-8 mt-5 ">
-					{filteredData ? (
-						filteredData.map((entry, index) => <Entry key={index} {...entry} />)
-					) : (
-						<h1 className="text-3xl font-bold mb-4">Loading...</h1>
-					)}
+					<div className="flex-1 p-8 mt-5 ">
+						{filteredData ? (
+							filteredData.map((entry, index) => <Entry key={index} {...entry} />)
+						) : (
+							<h1 className="text-3xl font-bold mb-4">Loading...</h1>
+						)}
+					</div>
 				</div>
 			</div>
 		</>

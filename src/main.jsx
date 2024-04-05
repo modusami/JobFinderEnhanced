@@ -6,6 +6,7 @@ import Sidebar from "./routes/Sidebar.jsx";
 import PageNotFound from "./routes/PageNotFound.jsx";
 import MainPage from "./routes/MainPage.jsx";
 import DetailPage from "./routes/DetailPage.jsx";
+import SkillsChart from "./components/SkillsChart.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
 	<React.StrictMode>
@@ -15,6 +16,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 					<Route index={true} element={<MainPage />} />
 					<Route path="job/:id" element={<DetailPage />} />
 					<Route path="*" element={<PageNotFound />} />
+					<Route path="/analytics" element={<SkillsChart />} />
 				</Route>
 			</Routes>
 		</BrowserRouter>

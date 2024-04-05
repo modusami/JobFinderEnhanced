@@ -11,6 +11,9 @@ const Sidebar = () => {
 							<li className="block py-2 hover:bg-slate-100">
 								<Link to={"/"}>Home</Link>
 							</li>
+							<li className="block py-2 hover:bg-slate-100">
+								<Link to={"/analytics"}>Analytics</Link>
+							</li>
 						</ul>
 					</nav>
 				</div>
