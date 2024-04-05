@@ -11,8 +11,8 @@ Time spent: **2.5** hours spent in total
 The following **required** functionality is completed:
 
 -   [ ] **The app includes at least one unique chart developed using the fetched data that tell an interesting story**
--   [ ] **Clicking on an item in the list view displays more details about it**
--   [ ] **Clicking on an item has a direct, unique link to that item's detail view page**
+-   [✅]] **Clicking on an item in the list view displays more details about it**
+-   [✅]] **Clicking on an item has a direct, unique link to that item's detail view page**
 
 The following **optional** features are implemented:
 
@@ -22,6 +22,7 @@ The following **optional** features are implemented:
 The following **additional** features are implemented:
 
 -   [✅] Routing to a non-existent page displays a 404 not found error image
+-   [✅] a certain item on the details page must have a logo associated with it
 
 ## Video Walkthrough
 

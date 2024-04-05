@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import backupImage from "/backup_logo.png";
 
 const DetailPage = () => {
 	const { id } = useParams();
@@ -30,10 +31,18 @@ const DetailPage = () => {
 	}, [id, data]);
 
 	return (
-		<div className="min-h-screen bg-gray-100 py-12 flex flex-col items-center justify-center w-full">
+		<div className="min-h-screen  py-12 flex flex-col items-center justify-center w-full">
 			<div className="w-full px-4">
 				{job ? (
 					<div className="bg-white shadow-lg rounded-lg overflow-hidden">
+						<div>
+							<img
+								src={job[0].logo ? job[0].logo : backupImage}
+								alt="image"
+								width="10%"
+								className="p-5"
+							/>
+						</div>
 						<div className="px-6 py-8">
 							<h1 className="text-4xl font-bold mb-6 text-center">{job[0].role}</h1>
 							<div className="mb-8">
@@ -68,9 +77,9 @@ const DetailPage = () => {
 							{job[0].keywords.length > 0 && (
 								<div>
 									<p className="text-lg font-semibold text-gray-700 mb-2">
-										Keywords:
+										Additional Skills:
 									</p>
-									<ul className="list-disc list-inside text-lg text-gray-700">
+									<ul className="list-disc list-inside text-lg text-black uppercase">
 										{job[0].keywords.map((keyword, index) => (
 											<li key={index}>{keyword}</li>
 										))}
